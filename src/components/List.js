@@ -10,7 +10,7 @@ export default function List({results}) {
         "Results"
         {/* {Login && <Login />} */}
         { results && Object.entries(results).map(([key, result]) => {
-          console.log(result);
+          // console.log(result);
           return (
             <BreweryCard key={key} brewery={result} />
             )

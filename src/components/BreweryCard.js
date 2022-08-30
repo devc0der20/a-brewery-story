@@ -5,7 +5,7 @@ import Favorite from './Favorite';
 import RatingCollapse from './RatingCollapse';
 
  export default function BreweryCard({brewery}) {
-
+  
    const loggedIn = useSelector(state => state.access.loggedIn)
   return(
     <>
@@ -23,10 +23,12 @@ import RatingCollapse from './RatingCollapse';
               {brewery.phone}
             </p>
             <a href={brewery.website_url} className="btn btn-outline-primary">visit it</a>
+            <span>{loggedIn && <Favorite brewery={brewery} />}</span>
+            
           </div>
-          <div className="d-flex">
-            <button className='btn btn-outline-success'>{loggedIn && <Favorite />}</button>
+
             {loggedIn && <RatingCollapse />}
+          <div className="d-flex">
           </div> 
       </div>
     </>

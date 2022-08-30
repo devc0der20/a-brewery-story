@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import List from './List';
+import ServerInterface from '../data/ServerInterface'
+import FormDialog from './FormDialog'
 
 export default function Brewery(params) {
 
@@ -30,6 +32,7 @@ export default function Brewery(params) {
 
     <div className="col-6 mt-3">
       "Brewery"
+      <FormDialog />
       <form action="" onSubmit={update}>
         <div className='d-flex'>
           <select className='form-select form-select-sm mx-3' name="type" id="type">
@@ -44,6 +47,7 @@ export default function Brewery(params) {
       <div>
         <List results={results}/>
       </div>
+      
     </div>
 
   )

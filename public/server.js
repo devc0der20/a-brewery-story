@@ -5,13 +5,25 @@
 const express = require('express');
 const port = 8080;
 const app = express();
+const header = {
+  "Access-Control-Allow-Origin": "*"}
+const options = {
+    setHeaders: function (res, path, stat) {
+    res.set("Access-Control-Allow-Origin", "*")
+  }
+}
 
 app.get('/', (req, res) => {
   res.send('test home!');
+
 })
 
+
+
 app.get('/db', (req, res) => {
-  res.sendFile(__dirname + "/" + "favorites.json");
+  res.set('Content-Type', 'json/plain')
+  res.header(header)
+  res.sendFile(__dirname + "/" + "data.json");
 })
 
 app.get('/favorites', (req, res) => {

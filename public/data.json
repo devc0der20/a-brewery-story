@@ -1,4 +1,6 @@
 {
-  "user": "dummy1",
-  "passowrd" : "123456"
+  "user": "dummy",
+  "passowrd" : "123456",
+  "favs": "",
+  "test-server": "expressjs"
 }
