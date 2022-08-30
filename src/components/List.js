@@ -1,20 +1,22 @@
 import React from 'react';
 import Login from './Login';
+import Rating from './Rating';
 
 export default function List({results}) {
   
   return (
-    <ul>
+    <table className="table-light">
       "Results"
       {/* {Login && <Login />} */}
       { results && Object.entries(results).map(([key, result]) => {
         console.log(result);
-        return <li key={result.id+"_"+key}>{result.name} 
+        return <tr className="table-light" key={result.id+"_"+key}>{result.name} 
           <span>{result.street}</span>
-        </li>
+        </tr >
       })
         
       }
-    </ul>
+      <Rating />
+    </table>
   )
 };
