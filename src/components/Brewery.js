@@ -27,26 +27,24 @@ export default function Brewery(params) {
   }, [inputField]); // trigger by inputFiled change
   
   return(
-    <div className='container'>
-      <div className="row justify-content-center">
-        <div className="col-6 mt-3">
-          "Brewery"
-          <form action="" onSubmit={update}>
-            <div className='d-flex'>
-              <select className='form-select form-select-sm mx-3' name="type" id="type">
-                { selections.map((selection) => {
-                  return <option key={selection} value={selection} text={selection}>{selection.toUpperCase()}</option>
-                })}
-              </select>
-              <input className='form-control '/>
-            </div>
-            <button className='btn btn-outline-primary w-25 mt-4' type='submit'>Fetch!</button>
-          </form>
+
+    <div className="col-6 mt-3">
+      "Brewery"
+      <form action="" onSubmit={update}>
+        <div className='d-flex'>
+          <select className='form-select form-select-sm mx-3' name="type" id="type">
+            { selections.map((selection) => {
+              return <option key={selection} value={selection} text={selection}>{selection.toUpperCase()}</option>
+            })}
+          </select>
+          <input className='form-control '/>
         </div>
-        <div>
-          <List results={results}/>
-        </div>
+        <button className='btn btn-outline-primary w-25 mt-4' type='submit'><i className="bi bi-search"></i></button>
+      </form>
+      <div>
+        <List results={results}/>
       </div>
     </div>
+
   )
 };
