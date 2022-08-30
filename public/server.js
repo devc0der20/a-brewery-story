@@ -21,9 +21,15 @@ app.get('/', (req, res) => {
 
 
 app.get('/db', (req, res) => {
-  res.set('Content-Type', 'json/plain')
+  // res.set('Content-Type', 'json/plain')
   res.header(header)
-  res.sendFile(__dirname + "/" + "data.json");
+  response = {
+    user: req.query.user,
+    password: req.query.password
+  }
+  // res.sendFile(__dirname + "/" + "data.json");
+  console.log(response);
+  res.send(JSON.stringify(response));
 })
 
 app.get('/favorites', (req, res) => {

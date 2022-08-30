@@ -10,7 +10,6 @@ export default function Login() {
   const loggedIn = useSelector(state =>  state.access.loggedIn)
   const dispatch = useDispatch()
   const handleLogin = (event) => {
-    
     event.preventDefault();
     // user data from login form
     const userData = {
@@ -20,25 +19,27 @@ export default function Login() {
 
     // console.log(database);
     // userData as payload
-    // fetch("http://localhost:8080/db")
-    //   .then(response => response.json())
-    //   .then(data => dispatch(login(data)))
-    //   .catch(error => console.error(error))
-    // dispatch(fetchData())
-    // dispatch(login(userData))
+    fetch(`http://localhost:8080/db?user=${userData.user}&password=${userData.password}`)
+      .then(response => response.json())
+      .then(data => dispatch(login(data)))
+      .catch(error => console.error(error))
+    dispatch(fetchData())
+    dispatch(login(userData))
   }
 
   return (
+
+  
     // log-in form
     <div className="col">
-      <form action="" onSubmit={handleLogin} > 
+      <form onSubmit={handleLogin}> 
         <div className="input-group mb-3">
           <span className="input-group-text" id="user-wrapper"><i className="bi bi-person-fill"></i></span>
-          <input type="text" className="form-control" id="user" aria-describedby="user-wrapper" />
+          <input type="text" name="user" className="form-control" id="user" aria-describedby="user-wrapper" />
         </div>
         <div className="input-group mb-3">
           <span className="input-group-text" id="password-warppaer"><i className="bi bi-key"></i></span>
-          <input type="password" className="form-control" id="password" aria-describedby="password-wrapper" />
+          <input type="password" name="password" className="form-control" id="password" aria-describedby="password-wrapper" />
         </div>
         <button type="submit" className="btn btn-outline-success">
           LOG IN
@@ -46,6 +47,7 @@ export default function Login() {
         </button>
         { loggedIn && <Logout />}
       </form>
+
     </div>
   )
 };
