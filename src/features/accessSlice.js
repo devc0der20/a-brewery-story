@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { users } from '../data/users';
 
 const initialState = {
-  loggedIn: false,
+  loggedIn: true,
   activeUser: null,
 }
 
@@ -30,6 +30,10 @@ export const accessSlice = createSlice({
     },
 
   },
+
+  setRate: () => {
+
+  }
 })
 
 // Action creators are generated for each case reducer function
