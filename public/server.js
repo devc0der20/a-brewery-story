@@ -25,32 +25,24 @@ app.get('/', (req, res) => {
 app.get('/db', (req, res) => {
   // res.set('Content-Type', 'json/plain')
   res.header(header)
-  const response = {
+  const query = {
     user: req.query.user,
     password: req.query.password
   }
-  fs.readFile('./public/data.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
+  let rawdata = fs.readFileSync('./public/data.json');
+  // parse und grab users
+  let users = JSON.parse(rawdata).users;
+  console.log(users);
+  // validate name/password
+  const validate = users.some(user => user.name === query.user && user.password === query.password)
 
-    if (response.user in Object.values(data)){
-      console.log("login successful");
-    } else {
-      console.log("failed login attempt");
-    }
-
-    // console.log(data);
-    // res.send(JSON.stringify(data));
-  });
-  console.log(response);
-  res.send(JSON.stringify(response));
-
-
-  
+  if (validate){
+    console.log("login successful");
+    res.send(validate)
+  } else {
+    console.log("failed login attempt");
+  }
 })
-
 
 
 app.use(express.static('public'));
