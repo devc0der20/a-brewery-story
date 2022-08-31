@@ -25,7 +25,7 @@ export default function FormDialog({visible}) {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        @
+        <i className="bi bi-box-arrow-right"> Login </i>
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Login</DialogTitle>

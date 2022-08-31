@@ -31,22 +31,21 @@ export default function Brewery() {
   return(
 
     <>
-      "Brewery"
-      <FormDialog />
       <form action="" onSubmit={update}>
         <div className='d-flex'>
-          <select className='form-select form-select-sm mx-3' name="type" id="type">
+          <select className='form-select form-select-sm mx-1 w-auto' name="type" id="type">
             { selections.map((selection) => {
               return <option key={selection} value={selection} text={selection}>{selection.toUpperCase()}</option>
             })}
           </select>
           <input className='form-control' value="york"/>
+          <button className='btn btn-outline-primary mx-2 w-25' type='submit'><i className="bi bi-search"></i></button>
         </div>
-        <button className='btn btn-outline-primary w-25 mt-4' type='submit'><i className="bi bi-search"></i></button>
       </form>
-      <div>
-        <List results={results}/>
-      </div>
+
+        <div className="col mx-auto">
+          <List results={results}/>
+        </div>
       
     </>
 

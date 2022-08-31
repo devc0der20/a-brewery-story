@@ -10,7 +10,7 @@ function App() {
       <NavBar />
       <div className="row justify-content-center">
         <div className="col-6 mt-3">
-        <Brewery />
+          <Brewery />
         </div>
       <div>
       </div>

@@ -18,7 +18,6 @@ const initialState = {
     review: []
   }]
   
-
 }
 
 const usersDB = {}
@@ -36,14 +35,13 @@ export const accessSlice = createSlice({
       console.log(ServerInterface);
       // console.log(ServerInterface(callback({})));
 
-      // fetch("http://localhost:8080/db")
-      //   .then(response => response.json())
-      //   .then(data => {
-      //     setUserData(data);
-      //     console.log(userData);
-      //   }
-      //   )
-      //   .catch(error => console.error(error))
+      fetch(`http://localhost:8080/db?user=${action.payload.user}&password=${action.payload.password}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+        }
+        )
+        .catch(error => console.error(error))
 
     // dispatch(fetchData())
       // action.payload.some((user) =>

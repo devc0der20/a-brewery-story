@@ -5,6 +5,7 @@
 const fs = require('fs');
 
 const express = require('express');
+const { response } = require('express');
 const port = 8080;
 const app = express();
 const header = {
@@ -24,31 +25,33 @@ app.get('/', (req, res) => {
 app.get('/db', (req, res) => {
   // res.set('Content-Type', 'json/plain')
   res.header(header)
+  const response = {
+    user: req.query.user,
+    password: req.query.password
+  }
   fs.readFile('./public/data.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
-    console.log(data);
-    res.send(JSON.stringify(data));
+
+    if (response.user in Object.values(data)){
+      console.log("login successful");
+    } else {
+      console.log("failed login attempt");
+    }
+
+    // console.log(data);
+    // res.send(JSON.stringify(data));
   });
-  // response = {
-  //   user: req.query.user,
-  //   password: req.query.password
-  // }
-  // // res.sendFile(__dirname + "/" + "data.json");
-  // console.log(response);
-  // res.send(JSON.stringify(response));
+  console.log(response);
+  res.send(JSON.stringify(response));
+
+
+  
 })
 
-app.get('/favorites', (req, res) => {
-  res.sendFile(__dirname + "/" + "favorites.json");
-   response = {
-    user: req.query.first_name,
-    favorites: req.query. favorites
-   }
-   res.end(JSON.stringify(response));
-})
+
 
 app.use(express.static('public'));
 

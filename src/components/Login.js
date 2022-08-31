@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useDispatch , useSelector} from "react-redux";
 import { login, logout, fetchData } from "../features/accessSlice";
 import { database } from "../data/ServerInterface";
@@ -11,6 +12,7 @@ export default function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
     // user data from login form
+    console.log(event.target);
     const userData = {
       user: event.target[0].value,
       password: event.target[1].value
@@ -32,7 +34,7 @@ export default function Login() {
           <span className="input-group-text" id="password-warppaer"><i className="bi bi-key"></i></span>
           <input type="password" name="password" className="form-control" id="password" aria-describedby="password-wrapper" />
         </div>
-
+        <button>submit</button>
       </form>
 
     </div>
