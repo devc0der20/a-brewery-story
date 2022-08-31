@@ -16,20 +16,12 @@ export default function Login() {
       user: event.target[0].value,
       password: event.target[1].value
     }
-
-    // console.log(database);
     // userData as payload
-    fetch(`http://localhost:8080/db?user=${userData.user}&password=${userData.password}`)
-      .then(response => response.json())
-      .then(data => dispatch(login(data)))
-      .catch(error => console.error(error))
-    dispatch(fetchData())
     dispatch(login(userData))
   }
 
   return (
 
-  
     // log-in form
     <div className="col">
       <form onSubmit={handleLogin}> 

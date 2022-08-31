@@ -1,6 +1,18 @@
 {
-  "user": "dummy",
-  "passowrd" : "123456",
-  "favs": "",
-  "test-server": "expressjs"
+  "1":{
+   "name": "name",
+   "password": "pass",
+    "preferences": ["crystal-ball-brewing-york"],
+    "ratings": null
+  },
+  "2": {
+    "name": "dummy",
+    "password": "dummy",
+    "preferences": null,
+    "ratings": null
+  },
+  "3": {
+    "name": "yusuf",
+    "password": "0000"
+  }
 }

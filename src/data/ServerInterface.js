@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 
-const database = null
 const ServerInterface = () => {
+  const [ userData, setUserData ] = useState(null)
   // internal sets
     const url = "http://localhost:8080/db"
     fetch(url)
       .then(response => response.json())
-      .then(data => database = data )
+      .then(data => setUserData(data) )
       .catch( error => console.error(error))
+  return userData
 }
-export default database
+
+
+export default ServerInterface

@@ -3,7 +3,7 @@ import List from './List';
 import ServerInterface from '../data/ServerInterface'
 import FormDialog from './FormDialog'
 
-export default function Brewery(params) {
+export default function Brewery() {
 
   // states, defaults, etc..
   const [inputField, setInputField] = useState("");
@@ -30,7 +30,7 @@ export default function Brewery(params) {
   
   return(
 
-    <div className="col-6 mt-3">
+    <>
       "Brewery"
       <FormDialog />
       <form action="" onSubmit={update}>
@@ -40,7 +40,7 @@ export default function Brewery(params) {
               return <option key={selection} value={selection} text={selection}>{selection.toUpperCase()}</option>
             })}
           </select>
-          <input className='form-control '/>
+          <input className='form-control' value="york"/>
         </div>
         <button className='btn btn-outline-primary w-25 mt-4' type='submit'><i className="bi bi-search"></i></button>
       </form>
@@ -48,7 +48,7 @@ export default function Brewery(params) {
         <List results={results}/>
       </div>
       
-    </div>
+    </>
 
   )
 };
