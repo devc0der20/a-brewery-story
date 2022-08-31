@@ -38,10 +38,11 @@ app.get('/db', (req, res) => {
 
   if (validate){
     console.log("login successful");
-    res.send(validate)
+    res.send({ "result": true })
   } else {
     console.log("failed login attempt");
   }
+
 })
 
 

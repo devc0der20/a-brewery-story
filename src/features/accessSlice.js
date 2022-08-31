@@ -6,7 +6,7 @@ import ServerInterface from '../data/ServerInterface'
 const initialState = {
 
   users: [{"name": "stateUser"}],
-  loggedIn: true,
+  loggedIn: false,
   activeUser: {
     name: "test_dummy",
     favorites: [],
@@ -20,8 +20,6 @@ const initialState = {
   
 }
 
-const usersDB = {}
-
 export const accessSlice = createSlice({
   name: 'access',
   initialState,
@@ -34,25 +32,12 @@ export const accessSlice = createSlice({
       console.log(state.users);
       console.log(ServerInterface);
       // console.log(ServerInterface(callback({})));
-
+      const response = false
       fetch(`http://localhost:8080/db?user=${action.payload.user}&password=${action.payload.password}`)
         .then(response => response.json())
-        .then(data => {
-          console.log(data);
-        }
-        )
+        .then(data => data.result )
         .catch(error => console.error(error))
-
-    // dispatch(fetchData())
-      // action.payload.some((user) =>
-      // { 
-      //   if (action.payload.user === user.name && action.payload.password === user.password)
-      //   { // set login status, grab user name
-      //     state.loggedIn = true;
-      //     state.activeUser = user.name
-      //     console.log(state.activeUser);
-      //   }
-      // })
+        
     },
 
     logout: (state, action) => {
@@ -61,13 +46,6 @@ export const accessSlice = createSlice({
       state.activeUser.name = null;
     },
 
-    // fetchData: (state, action) => {
-    //     fetch("http://localhost:8080/db")
-    //     .then(response => response.json())
-    //     .then(data => state.push(data))
-    //     .catch(error => console.error(error))
-    //     console.log(state.users);
-    // }
     // add to active user
     addFavorite: (state, action) => {
       console.log("favroited");
