@@ -1,17 +1,19 @@
 import React from 'react';
+import Review from './Review';
 
 export default function RatingCollapse({brewery}) {
+  const target_id = `#${brewery.id}`
   return(
     <>
-      <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#rating-collapse" aria-expanded="false" aria-controls="rating-collapse">
+      <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target={target_id}  aria-expanded="false" aria-controls= {brewery.id} >
         Rate it
         <i className="bi bi-caret-down-fill"></i>
       </button>
-      <div className="collapse" id="rating-collapse">
-        <div className="card card-body border border-0">
-        <textarea className='form-control' placeholder="write a short review.." type="plaintext" />
-        </div>
+      
+      <div className='center'>
+        <Review brewery={brewery}/>
       </div>
+       
     </>
   )
 };

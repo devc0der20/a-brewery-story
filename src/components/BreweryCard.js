@@ -13,7 +13,6 @@ import RatingCollapse from './RatingCollapse';
         <img src="https://api.unsplash.com/photos/random" className="card-img-top" alt="..."></img>
           <div className="card-body">
             <h5 className="card-title">{brewery.name}      
-            {loggedIn  && <Rating />}
             </h5>
             <p className="card-text d-flex">
               <i className="bi bi-house-fill"></i>
@@ -27,7 +26,7 @@ import RatingCollapse from './RatingCollapse';
             
           </div>
 
-            {loggedIn && <RatingCollapse />}
+        {loggedIn && <RatingCollapse brewery={brewery} />}
           <div className="d-flex">
           </div> 
       </div>

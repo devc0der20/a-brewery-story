@@ -8,9 +8,12 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Login from './Login';
 
-export default function FormDialog() {
+export default function FormDialog({visible}) {
   const [open, setOpen] = React.useState(false);
 
+  const checkVisible = () => {
+    if(visible) { setOpen(visible)}
+  }
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -22,7 +25,7 @@ export default function FormDialog() {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Login
+        <i className="bi bi-box-arrow-right"> Login </i>
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Login</DialogTitle>

@@ -1,19 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-
-
+import NavBar from './components/NavBar';
 import Brewery from './components/Brewery';
-import Login from './components/Login';
+
 
 function App() {
   return (
     <div className='container'>
-    <div className="row justify-content-center">
+      <NavBar />
+      <div className="row justify-content-center">
+        <div className="col-6 mt-3">
+          <Brewery />
+        </div>
       <div>
-        <Brewery />
-      </div>
-      <div>
-       <Login />
       </div>
     </div>
     </div>
