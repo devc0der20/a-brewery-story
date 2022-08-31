@@ -57,11 +57,10 @@ export const accessSlice = createSlice({
       // })
     },
 
-    logout: (state) => {
+    logout: (state, action) => {
       // post req to expressjs - add!
       state.loggedIn = false;
-      state.user = null;
-
+      state.activeUser.name = null;
     },
 
     // fetchData: (state, action) => {

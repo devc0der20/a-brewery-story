@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch , useSelector} from "react-redux";
 import { login, logout, fetchData } from "../features/accessSlice";
-import Logout from "./Logout";
 import { database } from "../data/ServerInterface";
 
 
@@ -33,11 +32,7 @@ export default function Login() {
           <span className="input-group-text" id="password-warppaer"><i className="bi bi-key"></i></span>
           <input type="password" name="password" className="form-control" id="password" aria-describedby="password-wrapper" />
         </div>
-        <button type="submit" className="btn btn-outline-success">
-          LOG IN
-          <i className="bi bi-box-arrow-right"></i>
-        </button>
-        { loggedIn && <Logout />}
+
       </form>
 
     </div>
