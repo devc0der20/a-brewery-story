@@ -1,6 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-// import { users } from '../data/users';
-import ServerInterface from '../data/ServerInterface'
+import { createSlice, nanoid, createAsyncThunk } from '@reduxjs/toolkit'
+// import { client } from '../../api/client'
 
 // the state
 const initialState = {
@@ -20,17 +19,24 @@ const initialState = {
   
 }
 
+// const { user , password } = action.payload
+// url = `http://localhost:8080/db?user=${user}&password=${password}`
+// export const checkCreds = createAsyncThunk('access/checkCreds', async () => {
+//   const response = await client.get(url)
+//   return response.data
+// })
+
 export const accessSlice = createSlice({
   name: 'access',
   initialState,
   reducers: {
-
+    
     login: (state, action) => {
       console.log(" login triggered");
       // iterate users and check
       console.log(action.payload);
       console.log(state.users);
-      console.log(ServerInterface);
+
       // console.log(ServerInterface(callback({})));
       const processData = (data) => {
           console.log("my callback is " + data);

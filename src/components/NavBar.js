@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import FormDialog from './FormDialog';
 import Logout from './Logout';
-
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   
@@ -21,6 +21,9 @@ export default function NavBar() {
           <span className="navbar-brand mb-0 h1">
             #
             {onlineStatus && activeUserName}</span>
+        </div>
+        <div>
+          <Link to="imprint">Imprint</Link>
         </div>
       </nav>
     </>
