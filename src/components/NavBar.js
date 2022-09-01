@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import FormDialog from './FormDialog';
 import Logout from './Logout';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function NavBar() {
   
@@ -12,10 +12,10 @@ export default function NavBar() {
 
   return(
     <>
-      <nav className="navbar bg-light">
+      <nav className="navbar bg-light ">
         <div className="container-fluid">
           <span className="navbar-brand mb-0 h1">
-            
+            <NavLink to="/">home</NavLink>
           </span>
           <span>
             <Link to="imprint">Imprint</Link>
@@ -24,7 +24,6 @@ export default function NavBar() {
               <Link to="chart">Charts</Link>
           </span>
           <div>
-
             {onlineStatus ? <Logout />: <FormDialog /> }
             {onlineStatus && (
               <span className="navbar-brand mb-0 h1">

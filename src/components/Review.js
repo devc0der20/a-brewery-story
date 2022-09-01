@@ -23,12 +23,12 @@ export default function Review({brewery}) {
 
   return(
     <>
-      <div className="collapse" id={brewery.id} >
-        <div className="card card-body ">
+      <div className="collapse m-2" id={brewery.id} >
+        <div className="card card-body shadow">
           <form action="" onSubmit={handleRatings}>
             <BasicRating brewery={brewery}/>
             <textarea id="review_text" className='form-control' placeholder="write a short review.." type="plaintext" />
-            <button className='btn btn-outline-primary' type="submit">Rate</button>
+            <button className='btn btn-outline-primary m-2' type="submit">Rate</button>
           </form>
         </div>
       </div>

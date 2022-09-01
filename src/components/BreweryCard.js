@@ -25,8 +25,8 @@ import RatingCollapse from './RatingCollapse';
             <span>{loggedIn && <Favorite brewery={brewery} />}</span>
             
           </div>
-
         {loggedIn && <RatingCollapse brewery={brewery} />}
+
           <div className="d-flex">
           </div> 
       </div>

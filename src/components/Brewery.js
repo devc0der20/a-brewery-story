@@ -32,8 +32,8 @@ export default function Brewery() {
   return(
 
     <>
-      <form action="" onSubmit={update}>
-        <div className='d-flex'>
+      <form action=""  onSubmit={update}>
+        <div className='d-flex shadow-lg p-3 mb-5 bg-body rounded'>
           <select className='form-select form-select-sm mx-1 w-auto' name="type" id="type">
             { selections.map((selection) => {
               return <option key={selection} value={selection} text={selection}>{selection.toUpperCase()}</option>

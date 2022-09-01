@@ -17,9 +17,10 @@ root.render(
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<App />} />      
-            <Route path="/imprint" element={<Imprint />} />      
-            <Route path="/chart" element={<BreweryChart />} />      
+            <Route path="/" element={<App />} />  
+              <Route path="imprint" element={<Imprint />} />      
+              <Route path="chart" element={<BreweryChart />} />      
+            <Route />   
 
           </Routes>
           </ BrowserRouter>
