@@ -4,9 +4,9 @@ import { createSlice, nanoid, createAsyncThunk } from '@reduxjs/toolkit'
 // the state
 const initialState = {
   users: [{"name": "stateUser"}],
-  loggedIn: false,
+  loggedIn: true,
   activeUser: {
-    name: "test_dummy",
+    name: null,
     favorites: [],
   },
    // array of brewery ids,
@@ -24,7 +24,8 @@ export const accessSlice = createSlice({
   reducers: {
 
     login: (state, action) => {
-      state.loggedIn = action.payload
+      state.loggedIn = action.payload[0]
+      state.activeUser.name = action.payload[1]
       console.log(action.payload);
     },
 
@@ -49,14 +50,15 @@ export const accessSlice = createSlice({
     },
 
     addReview: (state, action) => {
-
       const {id, review, rating } = action.payload
+      console.log(id, review, rating);
       const exisitingBrewery = state.brewery.find(brewery => brewery.id === id)
 
       if (exisitingBrewery) {
         console.log("existing already");
-        exisitingBrewery.review.push(review);
-        exisitingBrewery.rating.push(rating);
+        console.log(exisitingBrewery.review);
+        exisitingBrewery.review.push(review.toString());
+        exisitingBrewery.rating.push(Number(rating));
       }
       else {
         state.brewery.push(action.payload)

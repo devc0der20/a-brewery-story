@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from './NavBar';
 
 
 export default function Imprint() {
@@ -6,6 +7,7 @@ export default function Imprint() {
 
   return(
     <>
+      <NavBar />
     <div className='container'>
       <div className="col-6 mt-3 mx-auto">
         <h5>Imprint</h5>

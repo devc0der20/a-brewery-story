@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { store } from './store';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Imprint from './components/Imprint';
+import BreweryChart from './components/BreweryChart';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,8 +17,10 @@ root.render(
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<App />} />      
-            <Route path="/imprint" element={<Imprint />} />      
+            <Route path="/" element={<App />} />  
+              <Route path="imprint" element={<Imprint />} />      
+              <Route path="chart" element={<BreweryChart />} />      
+            <Route />   
 
           </Routes>
           </ BrowserRouter>
