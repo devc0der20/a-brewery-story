@@ -1,8 +1,6 @@
-import React from "react";
-
+import React , {useEffect } from "react";
 import { useDispatch , useSelector} from "react-redux";
-import { login, logout, fetchData } from "../features/accessSlice";
-import { database } from "../data/ServerInterface";
+import { login, logout, fetchData, checkCreds } from "../features/accessSlice";
 
 
 export default function Login() {

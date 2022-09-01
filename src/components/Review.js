@@ -13,8 +13,8 @@ export default function Review({brewery}) {
     const handleRatings = (event) => {
       event.preventDefault();
       const reviewData = {
-        review: event.target[6].value,
-        rating: event.target[5].value,
+        review: [event.target[6].value],
+        rating: [event.target[5].value],
         id: brewery.id
       }
       dispatch(addReview(reviewData))
