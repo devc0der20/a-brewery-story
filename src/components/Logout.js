@@ -14,7 +14,7 @@ export default function Logout() {
   return(
     <>
       <button onClick={handleLogout} className='btn btn-danger'>
-        <i className="bi bi-box-arrow-left"> Logout </i>
+        <i className="bi bi-box-arrow-left"></i>
       </button>
     </>
   )

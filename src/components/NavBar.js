@@ -16,14 +16,25 @@ export default function NavBar() {
         <div className="container-fluid">
           <span className="navbar-brand mb-0 h1">
             
-            {onlineStatus ? <Logout />: <FormDialog /> }
           </span>
-          <span className="navbar-brand mb-0 h1">
-            #
-            {onlineStatus && activeUserName}</span>
+          <span>
+            <Link to="imprint">Imprint</Link>
+          </span>
+          <span>
+              <Link to="chart">Charts</Link>
+          </span>
+          <div>
+
+            {onlineStatus ? <Logout />: <FormDialog /> }
+            {onlineStatus && (
+              <span className="navbar-brand mb-0 h1">
+                <i class="bi bi-person-fill h2 text-success"></i>
+                {activeUserName}
+              </span>
+            )}
+          </div>
         </div>
         <div>
-          <Link to="imprint">Imprint</Link>
         </div>
       </nav>
     </>
