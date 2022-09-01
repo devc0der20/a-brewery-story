@@ -26,7 +26,7 @@ export default function Review({brewery}) {
         <div className="card card-body ">
           <form action="" onSubmit={handleRatings}>
             <BasicRating brewery={brewery}/>
-            <textarea className='form-control' placeholder="write a short review.." type="plaintext" value="short review"/>
+            <textarea className='form-control' placeholder="write a short review.." type="plaintext" />
             <button className='btn btn-outline-primary' type="submit">Rate</button>
           </form>
         </div>

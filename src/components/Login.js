@@ -4,46 +4,31 @@ import ServerInterface from "../data/ServerInterface";
 import { login, logout, fetchData } from "../features/accessSlice";
 
 export default function Login() {
-  // workaround
-  const [trigger, setTrigger] = useState(false);
+ 
+ // workaround
   const [online, setOnline] = useState(false);
   const dispatch = useDispatch();
-  
-  if(online) {
-    dispatch(login(true))
+  const [activeUser, setActiveUser] = useState(null);
+
+  if (online) {
+    dispatch(login([true, activeUser]))
   }
-  const loggedIn = useSelector(state =>  state.access.loggedIn)
-  console.log("inital onlie", online);
-  // const dispatch = useDispatch()
+  const loggedIn = useSelector(state => state.access.loggedIn)
+
   const handleStatus = (event) => {
     event.preventDefault();
     // user data from login form
-    console.log(event.target);
-    const userData = {
-      user: event.target[0].value,
-      password: event.target[1].value
-    }
-    fetch(`http://localhost:8080/db?user=dummy&password=dummy`)
+    const { user, password } = event.target
+    console.log(user.value, password.value);
+    fetch(`http://localhost:8080/db?user=${user.value}&password=${password.value}`)
       .then(response => response.json())
       .then(data => {
         console.log("result", data.result);
-        setOnline(data.result)
+        setOnline(data.result);
+        setActiveUser(user.value)
         console.log("online", online);
       })
- 
-    // userData as payload
-    // dispatch(login(userData))
-    // dispatch(checkCreds(userData))
   }
-  // useEffect(() => {
-  //   fetch(`http://localhost:8080/db?user=dummy&password=dummy`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log("result",data.result);
-  //       setOnline(data.result)
-  //       console.log("online", online);
-  //     })
-  // }, [trigger]);
 
   return (
 

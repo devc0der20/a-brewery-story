@@ -6,7 +6,7 @@ const initialState = {
   users: [{"name": "stateUser"}],
   loggedIn: false,
   activeUser: {
-    name: "test_dummy",
+    name: null,
     favorites: [],
   },
    // array of brewery ids,
@@ -24,7 +24,8 @@ export const accessSlice = createSlice({
   reducers: {
 
     login: (state, action) => {
-      state.loggedIn = action.payload
+      state.loggedIn = action.payload[0]
+      state.activeUser.name = action.payload[1]
       console.log(action.payload);
     },
 
@@ -55,8 +56,8 @@ export const accessSlice = createSlice({
 
       if (exisitingBrewery) {
         console.log("existing already");
-        exisitingBrewery.review.push(review);
-        exisitingBrewery.rating.push(rating);
+        exisitingBrewery.review.push(review.toString());
+        exisitingBrewery.rating.push(Number(rating));
       }
       else {
         state.brewery.push(action.payload)
