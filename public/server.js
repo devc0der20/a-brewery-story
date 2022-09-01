@@ -41,6 +41,7 @@ app.get('/db', (req, res) => {
     res.send({ "result": true })
   } else {
     console.log("failed login attempt");
+    res.send({ "result": true })
   }
 
 })

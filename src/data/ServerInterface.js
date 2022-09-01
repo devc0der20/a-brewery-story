@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 
 const ServerInterface = () => {
-  const [ userData, setUserData ] = useState(null)
+  const online = false
   // internal sets
-    const url = "http://localhost:8080/db"
+    const url = "http://localhost:8080/db?user=dummy&passowrd=dummy"
     fetch(url)
       .then(response => response.json())
-      .then(data => setUserData(data) )
+      .then(data =>  data )
       .catch( error => console.error(error))
-  return userData
+  //  online = userData
+   console.log(online);
+   return online
 }
-
 
 export default ServerInterface
