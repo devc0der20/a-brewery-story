@@ -24,8 +24,8 @@ export const accessSlice = createSlice({
   reducers: {
 
     login: (state, action) => {
-      state.loggedIn = action.payload
       console.log(action.payload);
+      state.loggedIn = action.payload
     },
 
     logout: (state, action) => {
