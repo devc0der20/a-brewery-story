@@ -12,9 +12,10 @@ export default function Review({brewery}) {
     // const activeUser ="user"
     const handleRatings = (event) => {
       event.preventDefault();
+      console.log(event.target);
       const reviewData = {
-        review: [event.target[6].value],
-        rating: [event.target[5].value],
+        rating:  [Number(event.target.selected_rate.value)],
+        review:  [event.target.review_text.value],
         id: brewery.id
       }
       dispatch(addReview(reviewData))
@@ -26,7 +27,7 @@ export default function Review({brewery}) {
         <div className="card card-body ">
           <form action="" onSubmit={handleRatings}>
             <BasicRating brewery={brewery}/>
-            <textarea className='form-control' placeholder="write a short review.." type="plaintext" />
+            <textarea id="review_text" className='form-control' placeholder="write a short review.." type="plaintext" />
             <button className='btn btn-outline-primary' type="submit">Rate</button>
           </form>
         </div>
